@@ -8,6 +8,8 @@ Sequel Pro Bundles
 Feature :
 
 1.show one row to new windows
+
 2.filter key and show
+
 3.reset input 
 
