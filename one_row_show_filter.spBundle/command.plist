@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>author</key>
+	<string>colincat</string>
+	<key>category</key>
+	<string>Show</string>
+	<key>command</key>
+	<string>#!/usr/bin/python
+#coding=utf-8
+
+import urllib2, urllib
+
+import json
+
+import sys
+
+reload(sys)
+
+sys.setdefaultencoding('utf-8')
+
+
+data = sys.stdin.readlines()
+
+
+if len(data) &gt; 0 :
+    print '&lt;input type="text" id="filterName"  style="width:140px;height:30px"/&gt; &lt;button id="filterBtn"&gt;filter&lt;/button&gt;'
+    print '&lt;button id="resetBtn"&gt;reset&lt;/button&gt;&lt;br&gt;'
+else:
+    exit(0)
+
+header = data[0].strip('\n');
+headers = header.split(",")
+
+rowdata = data[1];
+rowdatas = rowdata.split(",")
+content_tab_row = '&lt;table border="1" cellspacing="0"&gt;  '
+row_tr  = ""
+for index in range(len(headers)):
+    row_tr = row_tr  +  "  &lt;tr&gt;&lt;th&gt;" +headers[index].strip('"') +" &lt;/th&gt;&lt;th&gt;" +rowdatas[index].strip('"') +"&lt;/th&gt; " + "&lt;/tr&gt;"
+
+content_tab_row = content_tab_row + row_tr + "&lt;/table&gt;"
+print content_tab_row
+
+print '&lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.4.1.min.js"&gt;&lt;/script&gt;'
+print '&lt;script type="text/javascript"&gt;'
+print 'jQuery.expr[":"].contains=function(a,i,m){return jQuery(a).text().toUpperCase().indexOf(m[3].toUpperCase())&gt;=0};'
+print '$("#filterBtn").click(function(){var keyword=$("#filterName").val();if(keyword==undefined||keyword==""){return}$("table tbody tr").hide().filter(":contains(\'"+(keyword)+"\')").show()});'
+print '$("#resetBtn").click(function(){window.location.reload()});'
+print '&lt;/script&gt;'</string>
+	<key>contact</key>
+	<string>pbyvapngfh@tznvy.pbz</string>
+	<key>defaultBundleWasModified</key>
+	<true/>
+	<key>description</key>
+	<string>SHOW one row as table HTML 
+
+Version 1.0</string>
+	<key>input</key>
+	<string>selectedtablerowsascsv</string>
+	<key>isDefaultBundle</key>
+	<true/>
+	<key>keyEquivalent</key>
+	<string></string>
+	<key>name</key>
+	<string>SHOW HTML</string>
+	<key>output</key>
+	<string>showashtml</string>
+	<key>scope</key>
+	<string>datatable</string>
+	<key>trigger</key>
+	<string>tablerowchanged</string>
+	<key>uuid</key>
+	<string>DA19E270-EAC7-44E6-99F5-405ACF84960B</string>
+</dict>
+</plist>
