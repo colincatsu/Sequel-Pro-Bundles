@@ -50,7 +50,7 @@ print '$("#filterBtn").click(function(){var keyword=$("#filterName").val();if(ke
 print '$("#resetBtn").click(function(){window.location.reload()});'
 print '&lt;/script&gt;'</string>
 	<key>contact</key>
-	<string>pbyvapngfh@tznvy.pbz</string>
+	<string>colincatsu#gmail.com</string>
 	<key>defaultBundleWasModified</key>
 	<true/>
 	<key>description</key>
